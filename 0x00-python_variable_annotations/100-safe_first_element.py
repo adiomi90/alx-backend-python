@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This script has a function with 
+"""This script has a function with
     correct duck type annotation """
 from typing import Any, Union, Sequence
 

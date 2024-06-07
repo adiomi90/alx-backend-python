@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-this script returns the result of 
+this script returns the result of
 list of integers
 multiplied by certain factor.
 """

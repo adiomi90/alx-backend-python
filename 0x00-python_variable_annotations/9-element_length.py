@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This script return values 
+"""This script return values
     with right type"""
 from typing import Iterable, Sequence, List, Tuple
 
