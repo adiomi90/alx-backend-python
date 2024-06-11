@@ -1,30 +1,20 @@
 #!/usr/bin/env python3
-"""this script has n times delays on each call"""
-
+"""n calls"""
 import asyncio
 from typing import List
-task_wait_random = __import__("task_wait_random").task_wait_random
+
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
-    """
-    Spawns task_wait_random n times with the specified max_delay.
+    """_summary_
 
-    Parameters:
-    n (int): The number of times to spawn task_wait_random.
-    max_delay (int): The maximum delay in seconds for task_wait_random.
+    Args:
+        n (int): _description_
+        max_delay (int): _description_
 
     Returns:
-    List[float]: A list of all the delays in ascending order.
-    """
+        List[float]: _description_
+    """    
     tasks = [task_wait_random(max_delay) for _ in range(n)]
-    delays = await asyncio.gather(*tasks)
-
-    # Manual sort
-    sorted_delays = []
-    while delays:
-        min_delay = min(delays)
-        sorted_delays.append(min_delay)
-        delays.remove(min_delay)
-
-    return sorted_delays
+    return [await task for task in asyncio.as_completed(tasks)]
